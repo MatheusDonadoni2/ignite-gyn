@@ -30,9 +30,9 @@ type FormData = {
 export function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigation = useNavigation<AuthNavigatorRoutesProps>();
   const toast = useToast();
   const { signIn } = useAuth();
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
   const {
     control,
@@ -44,7 +44,7 @@ export function SignIn() {
     navigation.navigate("signUp");
   }
 
-  async function handleSigUp({ email, password }: FormData) {
+  async function handleSigIn({ email, password }: FormData) {
     try {
       setIsLoading(true);
       await signIn(email, password);
@@ -122,7 +122,7 @@ export function SignIn() {
 
           <Button
             title="Acessar"
-            onPress={handleSubmit(handleSigUp)}
+            onPress={handleSubmit(handleSigIn)}
             isLoading={isLoading}
           />
         </Center>

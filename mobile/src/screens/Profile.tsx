@@ -195,11 +195,7 @@ export function Profile() {
             />
           ) : (
             <UserPhoto
-              source={
-                user.avatar
-                  ? { uri: `${api.defaults.baseURL}/avatar/${user.avatar}` }
-                  : defaultUserPhoto
-              }
+              source={user.avatar ? { uri: user.avatar } : defaultUserPhoto}
               alt="Foto do Usuário"
               size={PHOTO_SIZE}
             />

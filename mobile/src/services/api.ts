@@ -31,6 +31,7 @@ const api = axios.create({
 
 let isRefreshing = false;
 let failedQueue: Array<PromiseType> = [];
+
 const processQueue = ({ error, token = null }: processQueueParams): void => {
   failedQueue.forEach((request) => {
     if (error) {
